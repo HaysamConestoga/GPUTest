@@ -9,6 +9,9 @@ print("GPU:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else No
 PY
 ========================================
 pip install nvidia-tensorrt==8.6.1
+(venv) PS C:\SMARTCENTRE_VISION-TRAINING> python -m pip install nvidia-tensorrt==8.6.1
+ERROR: Could not find a version that satisfies the requirement nvidia-tensorrt==8.6.1 (from versions: 0.0.1.dev4, 0.0.1.dev5)
+ERROR: No matching distribution found for nvidia-tensorrt==8.6.1
 ++++++++++++++++++++++++++++++++++++++++
 python -c "import tensorrt as trt; print(trt.__version__)"
 ================================
