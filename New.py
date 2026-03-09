@@ -1,5 +1,5 @@
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-==============================
+=============================
 
 python - << "PY"
 import torch
@@ -16,11 +16,6 @@ python -c "import tensorrt as trt; print(trt.__version__)"
 
 
 
-# ===========================================================
-# SMARTCENTRE_VISION-TRAINING 
-# ===========================================================
-# GPU
-# ===========================================================
 
 from flask import Flask, render_template, request, redirect, url_for, send_file, send_from_directory, jsonify
 import cv2
@@ -45,7 +40,7 @@ import json
 
 # ========= GPU enforcement =========
 import torch
-torch.backends.cudnn.benchmark = True  # perf tweak
+torch.backends.cudnn.benchmark = True  
 
 # HARD REQUIREMENT: GPU must be available
 if not torch.cuda.is_available():
@@ -77,8 +72,8 @@ except Exception as e:
     ) from e
 
 # ========= Project constants =========
-ENGINE_PATH = "yolov8n.engine"   # your TRT engine file
-PT_WEIGHTS = "yolov8n.pt"        # used for training (GPU), must exist
+ENGINE_PATH = "yolov8n.engine"   # TRT engine file
+PT_WEIGHTS = "yolov8n.pt"        # for training (GPU)
 IMG_SIZE = 640
 DEVICE = 0                       # GPU:0 only
 
@@ -156,7 +151,7 @@ label_map = {
     "teddy bear": 77, "hair drier": 78, "toothbrush": 79
 }
 
-# ========= Database I/O (existing) =========
+# ========= Database I/O  =========
 from database.database import (
     save_image_detection,
     save_text_detection,
@@ -184,11 +179,19 @@ print("====================================================\n")
 
 # =========================
 # Flask routes
-# =========================
+# ========================
+"""
+Function  : index()
+Summary   : Render the main index page.
+Params    : none
+Return    : Rendered HTML template for the main page ('index.html').
+"""
+
 @app.route('/')
 def index():
     return render_template('index.html')
-
+    
+# OBJECT DETECTION TOGGLE ENDPOINT
 @app.route('/toggle_object_detection', methods=['POST'])
 def toggle_object_detection():
     global object_detection_enabled
@@ -200,6 +203,7 @@ def toggle_object_detection():
     except Exception as e:
         return jsonify({'status': 'error', 'message': f'Error toggling object detection: {str(e)}'})
 
+# GET OBJECT STATUS ENDPOINT  
 @app.route('/get_object_status')
 def get_object_status():
     return jsonify({
@@ -211,7 +215,8 @@ def get_object_status():
         'latest_detection': dict(all_detections[0][0]) if all_detections else None,
         'is_training': is_training
     })
-
+    
+# GET OBJECT STATUS ENDPOINT  
 @app.route('/toggle_weight_monitoring', methods=['POST'])
 def toggle_weight_monitoring():
     global weight_monitoring_enabled
