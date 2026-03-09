@@ -1,3 +1,5 @@
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+==============================
 (venv) PS C:\SMARTCENTRE_VISION-TRAINING> python app.py
 WARNING Unable to automatically guess model task, assuming 'task=detect'. Explicitly define task for your model, i.e. 'task=detect', 'segment', 'classify','pose' or 'obb'.
 CUDA available: False
