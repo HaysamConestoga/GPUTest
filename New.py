@@ -12,6 +12,8 @@ pip install nvidia-tensorrt==8.6.1
 (venv) PS C:\SMARTCENTRE_VISION-TRAINING> python -m pip install nvidia-tensorrt==8.6.1
 ERROR: Could not find a version that satisfies the requirement nvidia-tensorrt==8.6.1 (from versions: 0.0.1.dev4, 0.0.1.dev5)
 ERROR: No matching distribution found for nvidia-tensorrt==8.6.1
+++
+python -m pip install "C:\Program Files\NVIDIA Corporation\TensorRT\python\tensorrt-8.5.3.2-cp39-none-win_amd64.whl
 ++++++++++++++++++++++++++++++++++++++++
 python -c "import tensorrt as trt; print(trt.__version__)"
 ================================
