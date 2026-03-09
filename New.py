@@ -1,6 +1,5 @@
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 =============================
-
 python - << "PY"
 import torch
 print("Torch:", torch.__version__)
@@ -920,6 +919,7 @@ def retrain():
     training_thread.start()
     return jsonify({'status': 'success', 'message': 'Training started in background'}), 200
 
+# for debugging purpose only
 def debug_detections_list():
     print("\n[DEBUG] Latest 5 entries in all_detections:")
     for det in all_detections[:5]:
