@@ -1,4 +1,63 @@
+(venv) PS C:\SMARTCENTRE_VISION-TRAINING> python app.py
+WARNING Unable to automatically guess model task, assuming 'task=detect'. Explicitly define task for your model, i.e. 'task=detect', 'segment', 'classify','pose' or 'obb'.
+CUDA available: False
+Predictor backend: NoneType
+Model device: None
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5001
+Press CTRL+C to quit
+ * Restarting with stat
+WARNING Unable to automatically guess model task, assuming 'task=detect'. Explicitly define task for your model, i.e. 'task=detect', 'segment', 'classify','pose' or 'obb'.       
+CUDA available: False
+Predictor backend: NoneType
+Model device: None
+ * Debugger is active!
+ * Debugger PIN: 402-692-065
+127.0.0.1 - - [09/Mar/2026 11:37:27] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:27] "GET /get_object HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:27] "POST /upload_frame HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:28] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:28] "GET /get_object HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:29] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:29] "GET /get_object HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:29] "POST /upload_frame HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:30] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:30] "GET /get_object HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:31] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:31] "GET /get_object HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:31] "POST /upload_frame HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:32] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:32] "GET /get_object HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:33] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:33] "GET /get_object HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:33] "POST /upload_frame HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:34] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:34] "GET /get_object HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:35] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:35] "GET /get_object HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:35] "POST /upload_frame HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:36] "GET /get_log HTTP/1.1" 200 -
+127.0.0.1 - - [09/Mar/2026 11:37:36] "GET /get_object HTTP/1.1" 200 -
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "C:\Users\Viz1\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\Viz1\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\Viz1\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 232, in serve_forever
+    ready = selector.select(poll_interval)
+  File "C:\Users\Viz1\AppData\Local\Programs\Python\Python39\lib\selectors.py", line 324, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+  File "C:\Users\Viz1\AppData\Local\Programs\Python\Python39\lib\selectors.py", line 315, in _select
+    r, w, x = select.select(r, w, w, timeout)
+OSError: [WinError 10038] An operation was attempted on something that is not a socket
+(venv) PS C:\SMARTCENTRE_VISION-TRAINING>
 
+
+
+-----------------------------------------------
 from flask import Flask, render_template, request, redirect, url_for, send_file, send_from_directory, jsonify
 import cv2
 from matplotlib import pyplot as plt
